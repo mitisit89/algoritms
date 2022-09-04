@@ -1,7 +1,10 @@
-def sum(arr: list) -> int:
-    if not len(arr):
-        return 0 
-    return arr[0] + sum(arr[1:])
+def quick_sort(array: list) -> list:
+    if len(array) < 2:
+        return array
+    pivot = array[0]
+    less = [i for i in array[1:] if i <= pivot]
+    grater = [i for i in array[1:] if i > pivot]
+    return quick_sort(less) + [pivot] + quick_sort(grater)
 
 
-print(sum([1, 2, 3, 4, 5]))
+print(quick_sort([10, 5, 2, 3]))
